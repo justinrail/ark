@@ -1,0 +1,13 @@
+# 内置网站设置
+[Web]
+# Gin web server 是否开启调试模式
+GinDebugMode = false
+# WEB服务器的对外HTTP端口
+ServerPort = 80
+
+[Hub]
+# 中国移动B接口网关服务器是否可以启动
+MBGatewayServerCanStart = true
+# 中国移动B接口网关服务器的web服务(HTTP)端口号
+MBGatewayServerWebServicePort = 8080
+

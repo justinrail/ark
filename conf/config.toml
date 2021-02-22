@@ -1,0 +1,68 @@
+# ark的自身通用配置位置
+[App]
+# 是否启动自管理网站
+WebRunFuse = true
+# 是否启动性能诊断服务
+ProfileServerRunFuse = false
+# 是否开启自管理网站调试模式
+WebGinDebugMode = true
+# 自管理网站的对外HTTP端口
+WebServerPort = 8000
+# MYSQL的服务器IP
+MySQLServerIP = "127.0.0.1"
+# MYSQL的服务器端口
+MySQLServerPort = "3306"
+# MYSQL的服务器用户名
+MySQLServerUserName = "root"
+# MYSQL的服务器密码
+MySQLServerPassword = "siteweb1!"
+# MYSQL的服务器默认数据库
+MySQLServerDBName = "ark"
+# InfluxDB的服务器IP
+InfluxDBServerIP = "127.0.0.1"
+# InfluxDB的服务器Port
+InfluxDBServerPort = "8086"
+# InfluxDB的服务器用户名
+InfluxDBServerUserName = "admin"
+# InfluxDB的服务器密码
+InfluxDBServerPassword = "admin"
+# InfluxDB的服务器默认数据库
+InfluxDBServerDBName = "ark"
+# MongoDB的服务器IP
+MongoDBServerIP = "10.169.42.220"
+# MongoDB的服务器Port
+MongoDBServerPort = "27017"
+# MongoDB的服务器用户名
+MongoDBServerUserName = "admin"
+# MongoDB的服务器密码
+MongoDBServerPassword = "admin"
+# MongoDB的服务器默认数据库
+MongoDBServerDBName =  "phoenix"
+# JSON本地存储主目录
+JSONDBPath = "."
+
+[Hub]
+# 是否启动中国移动B接口采集器
+CollectorCMBRunFuse = true
+# 是否启动内置B接口采集器模拟器
+CollectorStubRunFuse = true
+# 是否保存历史CorePoint记录
+JobHisPointRunFuse = true
+# 是否保存历史指标
+JobHisComplexIndexRunFuse = true
+# 是否启动指标计算
+JobComplexIndexRunFuse = true
+# 是否启动事件通知机制
+NotifyRunFuse = true
+# 是否启动历史告警存储
+BoltHisEventRunFuse = true
+
+[Phoenix]
+# Phoenix服务器地址
+PhoenixServerIP = "10.169.42.89"
+# Phoenix服务器端口
+PhoenixServerPort = "8100"
+# 是否启动实时数据存储到Phoenix
+JobSendCOR = true
+# 是否启动事件发送至Phoenix
+BoltSendCOV = true
