@@ -1,8 +1,6 @@
 package mongostore
 
 import (
-	"ark/util/cfg"
-	"ark/util/log"
 	"fmt"
 
 	"github.com/globalsign/mgo"
@@ -24,20 +22,21 @@ import (
 //Connection mongoDB的session
 var Connection *mgo.Session
 
-func init() {
-	session, err := mgo.Dial(cfg.Read().App.MongoDBServerIP + ":" + cfg.Read().App.MongoDBServerPort)
-	if err != nil {
-		log.Error(err)
-		session.Close()
-		Connection = nil
-		return
-	}
+// TODO: 因为mongodb会提前初始化，影响启动，所以先关掉初始化函数
+// func init() {
+// 	session, err := mgo.Dial(cfg.Read().App.MongoDBServerIP + ":" + cfg.Read().App.MongoDBServerPort)
+// 	if err != nil {
+// 		log.Error(err)
+// 		session.Close()
+// 		Connection = nil
+// 		return
+// 	}
 
-	// Optional. Switch the session to a monotonic behavior.
-	session.SetMode(mgo.Monotonic, true)
-	Connection = session
-	//defer session.Close()
-}
+// 	// Optional. Switch the session to a monotonic behavior.
+// 	session.SetMode(mgo.Monotonic, true)
+// 	Connection = session
+// 	//defer session.Close()
+// }
 
 //Insert 插入文档数据
 func Insert(db string, table string, docs ...interface{}) error {

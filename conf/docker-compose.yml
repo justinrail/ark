@@ -1,0 +1,65 @@
+version: '2.2'
+
+services:
+
+  mysql:
+    container_name: ark_mysql
+    image: mysql:5.7.29
+    #cpus: 0.50
+    #mem_limit: '2048M'
+    ports:
+      - "3306:3306"
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /arkdata/mysql/db:/var/lib/mysql
+      - /arkdata/mysql/cnf:/etc/mysql/mysql.conf.d
+    environment:
+      TZ: "Asia/Shanghai"
+      MYSQL_DATABASE: ark
+      MYSQL_ROOT_PASSWORD: ark
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_USER: ark
+      MYSQL_PASSWORD: ark
+      MYSQL_USER_HOST: '%'
+    restart: always
+    command: [
+      "--character-set-server=utf8mb4",
+      "--collation-server=utf8mb4_unicode_ci",
+      "--lower_case_table_names=1",
+      "--innodb_flush_log_at_trx_commit=1"
+    ]
+    networks:
+      - net-spring-db
+
+  influxdb:
+    container_name: ark_influxdb
+    image: influxdb
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+    environment:
+      TZ: "Asia/Shanghai"
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime
+      - /arkdata/influxdb/conf:/etc/influxdb #默认的配置文件  修改连接参数，重启即可
+      - /arkdata/influxdb/logs:/var/log/influxdb/influxd.log #日志文件
+      - /arkdata/influxdb/data:/var/lib/influxdb/data #数据文件
+      - /arkdata/influxdb/scripts:/usr/lib/influxdb/scripts #初始化脚本文件夹
+    networks:
+      - net-spring-db
+    depends_on:
+      -  mysql
+
+
+#volumes:
+#  esdata:
+#    driver: local
+#    driver_opts:
+#      type: none
+#      o: bind
+#      device: /phoenixdata/es/data
+
+networks:
+  net-spring-db:
+    driver: bridge

@@ -15,7 +15,7 @@ MySQLServerPort = "3306"
 # MYSQL的服务器用户名
 MySQLServerUserName = "root"
 # MYSQL的服务器密码
-MySQLServerPassword = "siteweb1!"
+MySQLServerPassword = "ark"
 # MYSQL的服务器默认数据库
 MySQLServerDBName = "ark"
 # InfluxDB的服务器IP
@@ -29,7 +29,7 @@ InfluxDBServerPassword = "admin"
 # InfluxDB的服务器默认数据库
 InfluxDBServerDBName = "ark"
 # MongoDB的服务器IP
-MongoDBServerIP = "10.169.42.220"
+MongoDBServerIP = "127.0.0.1"
 # MongoDB的服务器Port
 MongoDBServerPort = "27017"
 # MongoDB的服务器用户名

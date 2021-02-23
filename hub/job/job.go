@@ -28,9 +28,9 @@ func Ready() {
 
 	//cr.AddJob("@every 10s", new(HisComplexIndexSinkJob))
 
-	if cfg.Read().Phoenix.JobSendCOR {
-		cr.AddFunc("@every 5s", sendCOR2Phoenix)
-	}
+	// if cfg.Read().Phoenix.JobSendCOR {
+	// 	cr.AddFunc("@every 5s", sendCOR2Phoenix)
+	// }
 
 	//cr.AddFunc("@every 30s", freeSystemMemory) //go return mem to system default is 5min , it's for debug, disabled by default
 }

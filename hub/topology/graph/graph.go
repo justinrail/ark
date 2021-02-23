@@ -33,7 +33,7 @@ func NewGraph() *TopologyGraph {
 	net.Add(new(bolt.COVStateNormalizer), "cov_state_normalizer")
 	net.Add(new(bolt.CoreActiveEventUpdater), "cov_coreactiveevent_updater")
 	net.Add(new(bolt.HisCoreLiveEventAppender), "cov_hsicoreactiveevent_appender")
-	net.Add(new(bolt.PhoenixCOVHooker), "phoenix_cov_hooker")
+	//net.Add(new(bolt.PhoenixCOVHooker), "phoenix_cov_hooker")
 
 	net.Connect("cog_spout", "COGOut1", "cog_state_updater", "In")
 	net.Connect("cog_spout", "COGOut2", "cog_ashbin", "In")
@@ -45,7 +45,7 @@ func NewGraph() *TopologyGraph {
 	net.Connect("cov_data_updater", "StateOut", "cov_state_normalizer", "In")
 	net.Connect("cov_state_normalizer", "StateOut", "cov_state_updater", "In")
 	net.Connect("cov_state_updater", "CoreLiteEventOut1", "cov_coreactiveevent_updater", "In")
-	net.Connect("cov_state_updater", "CoreLiteEventOut2", "phoenix_cov_hooker", "In")
+	//net.Connect("cov_state_updater", "CoreLiteEventOut2", "phoenix_cov_hooker", "In")
 	net.Connect("cov_coreactiveevent_updater", "HisCoreLiveEventOut", "cov_hsicoreactiveevent_appender", "In")
 	net.Connect("cov_spout", "COVOut2", "cov_ashbin", "In")
 

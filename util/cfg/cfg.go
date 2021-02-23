@@ -49,7 +49,7 @@ type (
 		BoltHisEventRunFuse       bool `required:"true"`
 	}
 
-	//Phoenix Phoenix的相关功能自定义配置
+	//Phoenix 一个第三方系统
 	Phoenix struct {
 		PhoenixServerIP   string `default:"10.169.42.89"`
 		PhoenixServerPort string `default:"8100"`
